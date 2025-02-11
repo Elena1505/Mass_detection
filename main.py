@@ -1,8 +1,9 @@
-from src.data_loader import load_data, explore_data
+from src.data_loader import load_data, cleaned_data, explore_data
 
 def main():
     csv_path = "/home/lelou1505/DS/mass_detection/data/train-small.csv"
     df = load_data(file_path=csv_path)
+    df = cleaned_data(df=df)
     explore_data(df)
 
 
