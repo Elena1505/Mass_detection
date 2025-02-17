@@ -43,6 +43,5 @@ Thumbs.db
 # Données sensibles ou volumineuses
 data/
 reports/
-notebooks/
 
 __init__.py
