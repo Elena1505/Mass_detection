@@ -1,7 +1,7 @@
 import pandas as pd 
 import os 
 import matplotlib.pyplot as plt 
-import seaborn as sns 
+import numpy as np 
 from pandas import DataFrame
 
 
@@ -23,4 +23,17 @@ def explore_data(df:DataFrame):
     print(df.info())
     print(df.head())
 
+
+def visualize_sample_images(df:DataFrame, file_path:str, num_images:int, output_path:str):
+    images = df['Image'].values
+    random_images = [np.random.choice(images) for i in range(num_images)]
+    
+    plt.figure(figsize=(20, 10))
+    for i in range(num_images):
+        plt.subplot(3, 3, i+1)
+        image = plt.imread(os.path.join(file_path, random_images[i]))
+        plt.imshow(image, cmap='gray')
+        plt.axis('off')
+        plt.tight_layout()
+    plt.savefig(os.path.join(output_path, "sample_image"))
 
