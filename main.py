@@ -1,4 +1,6 @@
 from src.data_loader import load_data, cleaned_data, explore_data, visualize_sample_images
+from src.preprocessing import preprocess_images
+import matplotlib.pyplot as plt 
 
 def main():
     csv_path = "/home/lelou1505/DS/mass_detection/data/train-small.csv"
@@ -8,6 +10,8 @@ def main():
     #df = cleaned_data(df=df)
     explore_data(df)
     visualize_sample_images(df=df, file_path=image_path, num_images=9, output_path=output_path)
+
+    generator = preprocess_images(df=df, file_path=image_path)
 
 
 if __name__ == "__main__":
